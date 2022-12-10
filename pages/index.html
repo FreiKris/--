@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id ="name">
+
+    </div>
+    <script>
+  let alatau = null;
+  let sonymusic = null;
+  let rollingstones = null;
+
+  await fetch('https://www.sonymusic.com/wp-json/wp/v2/posts')
+  .then(res => res.json())
+  .then((json) => {
+    sonymusic = json
+   
+  })
+  await fetch('https://www.alataunews.kz/wp-json/wp/v2/posts')
+  .then(res => res.json())
+  .then((json) => {
+    alatau = json
+   
+  })
+  await fetch('https://rollingstones.com/wp-json/wp/v2/posts')
+  .then(res => res.json())
+  .then((json) => {
+    rollingstones = json
+   
+  })
+
+  const spisok= [
+    ...alatau,
+    ...sonymusic,
+    ...rollingstones,
+]
+    </script>
+</body>
+</html>
